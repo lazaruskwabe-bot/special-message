@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Something For You Tee❤️</title>
+
+    <style>
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a001f, #4b0b45, #17001b);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: fixed;
+            bottom: -30px;
+            font-size: 20px;
+            animation: float 8s linear infinite;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            width: 92%;
+            max-width: 700px;
+            padding: 35px 25px;
+            text-align: center;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            position: relative;
+            z-index: 2;
+        }
+
+        .intro {
+            animation: fadeIn 1.5s ease;
+        }
+
+        .intro h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .intro p {
+            font-size: 18px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .heart-icon {
+            font-size: 65px;
+            margin-bottom: 15px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.18);
+            }
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(45deg, #ff3b81, #ff6ba6);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 8px 25px rgba(255,59,129,0.35);
+        }
+
+        button:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 30px rgba(255,59,129,0.5);
+        }
+
+        /* Hidden message */
+        #message {
+            display: none;
+            animation: messageAppear 1.2s ease;
+        }
+
+        @keyframes messageAppear {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #message h2 {
+            font-size: 32px;
+            margin-bottom: 25px;
+        }
+
+        .message-text {
+            font-size: 18px;
+            line-height: 1.9;
+            text-align: left;
+            background: rgba(0,0,0,0.15);
+            padding: 25px;
+            border-radius: 18px;
+        }
+
+        .highlight {
+            color: #ff8fba;
+            font-weight: bold;
+        }
+
+        .signature {
+            margin-top: 25px;
+            font-size: 20px;
+            font-style: italic;
+        }
+
+        /* Photo section */
+        .photos {
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .photos h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .photos p {
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+
+        .photo-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 25px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 30px;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .photo-button:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.05);
+        }
+
+        .final-message {
+            margin-top: 35px;
+            font-size: 22px;
+            line-height: 1.6;
+        }
+
+        .love {
+            color: #ff6b9d;
+            font-size: 30px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+
+            .container {
+                padding: 30px 18px;
+            }
+
+            .intro h1 {
+                font-size: 32px;
+            }
+
+            #message h2 {
+                font-size: 27px;
+            }
+
+            .message-text {
+                font-size: 16px;
+                line-height: 1.8;
+                padding: 20px;
+            }
+
+            .heart-icon {
+                font-size: 55px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating hearts -->
+    <div class="heart" style="left:10%; animation-delay:0s;">❤️</div>
+    <div class="heart" style="left:25%; animation-delay:2s;">💗</div>
+    <div class="heart" style="left:40%; animation-delay:4s;">💕</div>
+    <div class="heart" style="left:60%; animation-delay:1s;">❤️</div>
+    <div class="heart" style="left:75%; animation-delay:3s;">💖</div>
+    <div class="heart" style="left:90%; animation-delay:5s;">💕</div>
+
+
+    <div class="container">
+
+        <!-- INTRO -->
+        <div class="intro" id="intro">
+
+            <div class="heart-icon">
+                ❤️
+            </div>
+
+            <h1>A Little Something For You</h1>
+
+            <p>
+                There are some things that are better written
+                than simply said...
+            </p>
+
+            <button onclick="openMessage()">
+                Open My Message 💌
+            </button>
+
+        </div>
+
+
+        <!-- MESSAGE -->
+        <div id="message">
+
+            <h2>For Someone Very Special ❤️</h2>
+
+            <div class="message-text">
+
+                <p>
+                    I just wanted to take a moment to remind you of
+                    something you should never forget:
+                    <span class="highlight">you are special to me.</span>
+                </p>
+
+                <br>
+
+                <p>
+                    Sometimes I may not find the perfect words to
+                    explain everything I feel, but I hope you know
+                    how much you mean to me.
+                </p>
+
+                <br>
+
+                <p>
+                    I love you, and I genuinely appreciate having you
+                    in my life. Every conversation, every laugh,
+                    every little moment and every memory we have
+                    created means more to me than you may realize.
+                </p>
+
+                <br>
+
+                <p>
+                    Most importantly, I want to say
+                    <span class="highlight">thank you for choosing me.</span>
+                </p>
+
+                <br>
+
+                <p>
+                    Thank you for giving me a place in your heart.
+                    Thank you for the moments we share.
+                    Thank you for being yourself and for allowing me
+                    to be part of your journey.
+                </p>
+
+                <br>
+
+                <p>
+                    Whenever you look at the memories we have made,
+                    I hope they remind you that there is someone
+                    who truly appreciates you, cares about you,
+                    and loves you.
+                </p>
+
+                <div class="signature">
+                    With love, always ❤️
+                </div>
+
+            </div>
+
+            <!-- PHOTOS -->
+            <div class="photos">
+
+                <h3>Our Memories 📸</h3>
+
+                <p>
+                    I wanted you to have a little place where you
+                    can look back at some of the moments that mean
+                    something to me.
+                </p>
+
+                <!--
+                REPLACE THE LINK BELOW WITH YOUR PHOTO LINK
+                Example:
+                https://photos.google.com/your-gallery
+                -->
+                <a
+                    href="https://photos.google.com/direct/AF1QipODllgkt-4i_n-r8gaaavThMDczdr1EdzwrBP4Nx8dqoVraiHr0h6uSgu_dTRN_eQ/photos"
+                    target="_blank"
+                    class="photo-button"
+                >
+                    Open Our Photos 📸
+                </a>
+
+            </div>
+
+            <!-- FINAL MESSAGE -->
+            <div class="final-message">
+
+                <p>
+                    No matter how busy life gets,
+                    never forget how special you are Kuli Ba Kwabe.
+                </p>
+
+                <br>
+
+                <p>
+                    <span class="love">
+                        I love you ❤️
+                    </span>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function openMessage() {
+
+            document.getElementById("intro").style.display = "none";
+
+            document.getElementById("message").style.display = "block";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+    </script>
+
+</body>
+</html>
